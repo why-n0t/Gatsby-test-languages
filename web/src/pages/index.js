@@ -106,14 +106,13 @@ const IndexPage = props => {
       <Container>
         <h1 hidden>{t(`${siteTitles}`)}</h1>
         <h1>{t("homeWelcome")}</h1>
-        {projectNodes && (
+        {/* {projectNodes && (
           <ProjectPreviewGrid
             title={t("homeLatestProjects")}
             nodes={projectNodes}
             // browseMoreHref="/archive/"
-            language={context.language}
           />
-        )}
+        )} */}
       </Container>
     </Layout>
   );

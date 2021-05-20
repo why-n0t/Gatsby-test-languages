@@ -7,7 +7,6 @@ const { isFuture } = require("date-fns");
 
 async function createProjectPages(graphql, actions, reporter) {
   const { createPage } = actions;
-  const extraLanguages = ["de"];
   const result = await graphql(`
     {
       allSanitySampleProject(

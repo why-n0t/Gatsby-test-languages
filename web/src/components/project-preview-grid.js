@@ -15,7 +15,7 @@ function ProjectPreviewGrid(props) {
       <ul className={styles.grid}>
         {props.nodes &&
           props.nodes.map(node =>
-            props.language === node.lang ? (
+            context.language === node.lang ? (
               <li key={node.id}>
                 <ProjectPreview {...node} />
               </li>
