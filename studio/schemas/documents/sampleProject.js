@@ -6,6 +6,11 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'lang',
+      title: 'Language',
+      type: 'string'
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string'
@@ -73,15 +78,17 @@ export default {
   preview: {
     select: {
       title: 'title',
+      lang: 'lang',
       publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare({title = 'No title', publishedAt, slug = {}, media}) {
+    prepare ({title = 'No title', publishedAt, slug = {}, media, lang}) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {
         title,
+        lang,
         media,
         subtitle: publishedAt ? path : 'Missing publishing date'
       }

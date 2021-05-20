@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import React from "react";
 import { cn, buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
@@ -6,10 +6,16 @@ import BlockText from "./block-text";
 
 import * as styles from "./project-preview.module.css";
 import { responsiveTitle3 } from "./typography.module.css";
+import { I18nextContext, Link } from "gatsby-plugin-react-i18next";
 
 function ProjectPreview(props) {
+  const context = React.useContext(I18nextContext);
+  // console.log(context);
+  // console.log(props.slug.current);
+  // console.log(props);
   return (
-    <Link className={styles.root} to={`/project/${props.slug.current}`}>
+    // <Link className={styles.root} to={`${props.slug.current}`}>
+    <Link className={styles.root} to={`${props.slug.current}`} language={context.language}>
       <div className={styles.leadMediaThumb}>
         {props.mainImage && props.mainImage.asset && (
           <img

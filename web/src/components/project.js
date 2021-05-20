@@ -1,16 +1,20 @@
 import { format, distanceInWords, differenceInDays } from "date-fns";
 import React from "react";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
 import Container from "./container";
 import RoleList from "./role-list";
+import { I18nextContext, Link } from "gatsby-plugin-react-i18next";
 
 import * as styles from "./project.module.css";
 
 function Project(props) {
   const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props;
+  // console.log(title);
+  const context = React.useContext(I18nextContext);
+
   return (
     <article className={styles.root}>
       {props.mainImage && mainImage.asset && (
@@ -57,7 +61,9 @@ function Project(props) {
                   {relatedProjects.map(project => (
                     <li key={`related_${project._id}`}>
                       {project.slug ? (
-                        <Link to={`/project/${project.slug.current}`}>{project.title}</Link>
+                        <Link to={`/${project.slug.current}`} language={context.language}>
+                          {project.title + ` slug: /${project.slug.current}`}
+                        </Link>
                       ) : (
                         <span>{project.title}</span>
                       )}
