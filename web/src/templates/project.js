@@ -5,11 +5,13 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import Project from "../components/project";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import { I18nextContext } from "gatsby-plugin-react-i18next";
 
 export const query = graphql`
   query ProjectTemplateQuery($id: String!) {
     sampleProject: sanitySampleProject(id: { eq: $id }) {
       id
+      lang
       publishedAt
       categories {
         _id
@@ -82,6 +84,8 @@ export const query = graphql`
 `;
 
 const ProjectTemplate = props => {
+  const context = React.useContext(I18nextContext);
+  console.log(context);
   const { data, errors } = props;
   const project = data && data.sampleProject;
   return (

@@ -67,5 +67,8 @@ yarn.lock
 # Yarn Integrity file
 .yarn-integrity
 
-# Secrets
-.env.development
+# # Secrets
+# .env.development
+
+# dotenv environment variable files
+.env*
