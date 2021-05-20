@@ -32,7 +32,7 @@ export const query = graphql`
         }
       }
     }
-    projects: allSanityArticle {
+    article: allSanityArticle {
       totalCount
       edges {
         node {
@@ -110,8 +110,8 @@ const MyPage = props => {
   }
 
   const site = (data || {}).site;
-  const articleNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
+  const articleNodes = (data || {}).article
+    ? mapEdgesToNodes(data.article)
         .filter(filterOutDocsWithoutSlugs)
         .filter(filterOutDocsPublishedInTheFuture)
     : [];
@@ -132,11 +132,12 @@ const MyPage = props => {
             {articleNodes.map(node => (
               <ArticlePreview
                 title={node.title.en}
-                slug={node.slug.current}
+                // slug={node.slug.current}
+                slug={`/${node.slug.current}/`}
                 mainImage={node.mainImage}
                 alt={node.mainImage.alt.en}
                 excerpt={node.excerpt._rawEn}
-                lang={context.language}
+                // lang={context.language}
               />
             ))}
             {/* {articleNodes.map(node => (

@@ -31,7 +31,7 @@ export const query = graphql`
         }
       }
     }
-    projects: allSanityArticle {
+    article: allSanityArticle {
       totalCount
       edges {
         node {
@@ -109,8 +109,8 @@ const MyPage = props => {
   }
 
   const site = (data || {}).site;
-  const articleNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
+  const articleNodes = (data || {}).article
+    ? mapEdgesToNodes(data.article)
         .filter(filterOutDocsWithoutSlugs)
         .filter(filterOutDocsPublishedInTheFuture)
     : [];
@@ -120,7 +120,7 @@ const MyPage = props => {
   //       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
   //     );
   //   }
-  console.log(data);
+  console.log(articleNodes);
   return (
     <Layout>
       <SEO title="dafs" description="gfd" />
@@ -131,11 +131,12 @@ const MyPage = props => {
             {articleNodes.map(node => (
               <ArticlePreview
                 title={node.title.de}
-                slug={node.slug.current}
+                // slug={node.slug.current}
+                slug={`/${node.slug.current}/`}
                 mainImage={node.mainImage}
                 alt={node.mainImage.alt.de}
                 excerpt={node.excerpt._rawDe}
-                lang={context.language}
+                // lang={context.language}
               />
             ))}
           </ul>

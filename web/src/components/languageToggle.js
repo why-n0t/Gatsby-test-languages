@@ -11,11 +11,11 @@ import PropTypes from "prop-types";
 // import i18n from "i18next";
 // import "./i18n";
 
-import { useI18next, I18nextContext } from "gatsby-plugin-react-i18next";
+import { useI18next, I18nextContext, Link } from "gatsby-plugin-react-i18next";
 
 export default function LanguageModeToggle({ toggleId }) {
   // const { languages, originalPath, t } = useI18next();
-  const { languages, changeLanguage } = useI18next();
+  const { languages, changeLanguage, originalPath } = useI18next();
 
   // console.log(languages, originalPath, t);
   // const handleLanguageToggle = ({ lng }) => {
@@ -38,7 +38,7 @@ export default function LanguageModeToggle({ toggleId }) {
   // console.log(i18n.language);
 
   const context = React.useContext(I18nextContext);
-  console.log(context.language);
+  console.log(context);
   return (
     <div className="block mt-4 text-header no-underline md:inline-block md:mt-0 md:ml-6 md:text-base md:font-Mulish md:uppercase">
       {/* <div className=""> */}
@@ -54,6 +54,16 @@ export default function LanguageModeToggle({ toggleId }) {
             >
               {lng}
             </a>
+            {/* <Link
+              to={originalPath}
+              language={lng}
+              onClick={e => {
+                e.preventDefault();
+                changeLanguage(lng);
+              }}
+            >
+              {lng}
+            </Link> */}
           </li>
         ))}
         {/* {languages.map(lng => (

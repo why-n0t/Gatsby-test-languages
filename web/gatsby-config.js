@@ -57,6 +57,11 @@ module.exports = {
             matchPath: "/:lang?/:uid",
             getLanguageFromPath: true,
             excludeLanguages: ["en", "de"]
+          },
+          {
+            matchPath: "/:lang?/keyword/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["en", "de"]
           }
           // {
           //   matchPath: "/404",
