@@ -24,6 +24,17 @@ export default {
     collapsible: true,
     collapsed: true
   },
+  fieldsets: [
+    {
+      name: "tags",
+      title: "All tags",
+      options: {
+        collapsible: true, // Makes the whole fieldset collapsible
+        collapsed: false, // Defines if the fieldset should be collapsed by default or not
+        columns: 1 // Defines a grid for the fields and how many columns it should have
+      }
+    }
+  ],
   fields: [
     {
       title: "title",
@@ -69,6 +80,18 @@ export default {
       type: "reference",
       name: "author",
       to: [{ type: "author" }]
+    },
+    {
+      name: "keywords",
+      type: "array",
+      title: "Keywords",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "keyword" }]
+        }
+      ],
+      fieldset: "tags"
     },
     {
       type: "array",

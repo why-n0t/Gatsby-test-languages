@@ -12,10 +12,10 @@ function ProjectPreview(props) {
   const context = React.useContext(I18nextContext);
   // console.log(context);
   // console.log(props.slug.current);
-  // console.log(props);
+  console.log(props);
   return (
     // <Link className={styles.root} to={`${props.slug.current}`}>
-    <Link className={styles.root} to={`${props.slug.current}`} language={context.language}>
+    <Link to={`${props.slug.current}`} language={context.language}>
       <div className={styles.leadMediaThumb}>
         {props.mainImage && props.mainImage.asset && (
           <img

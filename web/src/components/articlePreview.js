@@ -1,6 +1,6 @@
 import { format, distanceInWords, differenceInDays } from "date-fns";
 import React from "react";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 // import { buildImageObj } from "../lib/helpers";
 // import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
@@ -28,17 +28,19 @@ import { imageUrlFor } from "../lib/image-url";
 
 import * as styles from "../components/project-preview.module.css";
 import * as stylesGrid from "../components/project-preview-grid.module.css";
+import { Link, useTranslation, I18nextContext, useI18next } from "gatsby-plugin-react-i18next";
 
 import { responsiveTitle3 } from "../components/typography.module.css";
 
-function ArticlePreview({ title, slug, mainImage, alt, excerpt, lang }) {
-  // console.log(props);
+function ArticlePreview({ title, slug, mainImage, alt, excerpt }) {
+  console.log(slug);
   // const { title, slug, mainImage, alt, excerpt, lang } = props;
   // const { articleNodes } = props;
+  const context = React.useContext(I18nextContext);
 
   return (
     <div>
-      <Link className={styles.root} to={`/${slug.current}/`} language={lang}>
+      <Link className={styles.root} to={slug} language={context.language}>
         <div className={styles.leadMediaThumb}>
           {mainImage && mainImage.asset && (
             <img

@@ -8,13 +8,17 @@
   "homeLatestProjects": "Latest projects",
 
   "myPage": "This is the Index page.",
-  "seitenTitel": "Page title in english",
-  "thirdPageLink": "Link to third page",
+  "Page title": "Page title in english",
+  "Keywords": "Keywords",
   "indexPageLink": "Link to index page",
   "secondPageGermanLink": "Link to second page (German)",
   "indexPageEnglishLink": "Link to Index page (English)",
   "overviewLang": "Overview of languages",
   "thirdPage": "Third page",
   "thirdNote": "This is the third page",
-  "home": "Home"
+  "home": "Home",
+
+  "404: Not found": "404: Not found",
+  "NOT FOUND": "NOT FOUND",
+  "You just hit a route that doesn't exist... the sadness.": "You just hit a route that doesn't exist... the sadness."
 }

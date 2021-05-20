@@ -17,10 +17,10 @@ const Header = ({ onHideNav, onShowNav, showNav }) => {
       <div className={styles.wrapper}>
         <div className={styles.branding}>
           <Link to="/" language={context.language}>
-            {t("seitenTitel")}
+            {t("Page title")}
           </Link>
         </div>
-        <div>{t("seitenTitel")}</div>
+        <div>{t("Page title")}</div>
         <LanguageModeToggle toggleId="header" />
         <Link to="/myPage/" language={context.language} className="ml-8">
           Mypage link

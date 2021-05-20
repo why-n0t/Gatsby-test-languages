@@ -10,7 +10,8 @@ import person from "./documents/person";
 import sampleProject from "./documents/sampleProject";
 import siteSettings from "./documents/siteSettings";
 import post from "./documents/post";
-// import article from "./documents/article";
+import article from "./documents/article";
+import keyword from "./documents/keyword";
 
 // Object types
 import bioPortableText from "./objects/bioPortableText";
@@ -22,7 +23,6 @@ import simplePortableText from "./objects/simplePortableText";
 import richText from "./objects/richText";
 import openGraph from "./objects/openGraph";
 import captionImage from "./objects/captionImage";
-import article from "./documents/article";
 import author from "./documents/author";
 import { localeString, localeText, localeRichText } from "./objects/localeString";
 import { translateFields } from "./fieldTranslation";
@@ -58,5 +58,5 @@ export default createSchema({
       localeRichText
       // article
     ])
-    .concat(translateFields([article, author]))
+    .concat(translateFields([article, author, keyword]))
 });

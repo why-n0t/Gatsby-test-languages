@@ -8,7 +8,16 @@ import Layout from "../containers/layout";
 import { I18nextContext } from "gatsby-plugin-react-i18next";
 
 export const query = graphql`
-  query ProjectTemplateQuery($id: String!) {
+  query ProjectTemplateQuery($id: String!, $language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
     sampleProject: sanitySampleProject(id: { eq: $id }) {
       id
       lang
